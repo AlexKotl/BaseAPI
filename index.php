@@ -4,7 +4,8 @@
 	
 	include("classes/Mysql.php");
 	include("classes/API.php");
-	include("configs/db.php");
+	include(file_exists("configs/db.php") ? "configs/db.php" : "configs/db.default.php");
+	include(file_exists("configs/config.php") ? "configs/config.php" : "configs/config.default.php");
 	
 	use BaseAPI\Classes\Mysql;
 	use BaseAPI\Classes\API;
