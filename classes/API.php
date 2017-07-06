@@ -80,12 +80,16 @@ class API {
 		$module = preg_replace("/([^a-z0-9\- ])/i", '', $module);
 		
 		if (file_exists(__DIR__ . "/../modules/{$module}.php")) {
+			
 			$db = $this->db;
+			$parameters = $this->parameters;
+			
 			$data = array();
 			
 			include(__DIR__ . "/../modules/{$module}.php");
 			
 			return $data;
+			
 		}
 		else {
 			return false;
