@@ -16,7 +16,7 @@ class Mysql {
 	
 	function query($string) {
 		
-		$result = mysqli_query($this->link, $string);
+		$result = mysqli_query($this->link, $string); 
 		
 		if ($result===false) {
 			return false; 
@@ -26,7 +26,7 @@ class Mysql {
 	}
 	
 	function fetch(&$res) {
-		return mysql_fetch_array($res);
+		return mysqli_fetch_array($res);
 	}
 	
 	function get_row($string) {
