@@ -10,9 +10,8 @@
 	use BaseAPI\Classes\API;
 	
 	$db = new Mysql(Configs\DB_CONNECTION);
-	$api = new API();
 	
-	echo "Hello ";
-	echo $db->get_row("select name from bases limit 1");
+	$api = new API($db);
+	$api->outputData();
 		
 ?>
