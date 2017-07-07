@@ -2,11 +2,9 @@
 	
 	namespace BaseAPI\Configs;
 	
-	const DB_CONNECTION = array(
-		'host' => 'localhost',
-		'user' => 'root',
-		'password' => 'root',
-		'database' => 'bases'
-	);
-	
+	const DB_HOST = 'localhost';
+	const DB_USER = 'root';
+	const DB_PASSWORD = 'root';
+	const DB_NAME = 'bases';
+		
 ?>
