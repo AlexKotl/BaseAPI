@@ -28,7 +28,8 @@
 			'price' => $row['price'] ? $row['price'] . ' грн' : '',
 			'posX' => $row['pos_x'],
 			'posY' => $row['pos_y'],
-			'images' => $images
+			'images' => $images,
+			'comments_count' => $row['comments_count'],
 		);
 	}
 		
