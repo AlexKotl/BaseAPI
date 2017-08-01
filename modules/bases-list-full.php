@@ -18,18 +18,23 @@
 			}
 		}
 		
+		$row['description'] = strip_tags($row['description']);
+		$row['name'] = strip_tags($row['name']);
+		$row['contacts'] = strip_tags($row['contacts']);
+		$row['address'] = strip_tags($row['address']);
+		
 		$data[$row['id']] = array(		
 			'id' => $row['id'],
 			'title' => $row['name'],
 			'description' => $row['description'],
 			'address' => $row['address'],
 			'contacts' => $row['contacts'],
-			'rating' => $row['rating'],
+			'rating' => (float)$row['rating'],
 			'price' => $row['price'] ? $row['price'] . ' грн' : '',
-			'posX' => $row['pos_x'],
-			'posY' => $row['pos_y'],
+			'posX' => (float)$row['pos_x'],
+			'posY' => (float)$row['pos_y'],
 			'images' => $images,
-			'comments_count' => $row['comments_count'],
+			'comments_count' => (int)$row['comments_count'],
 		);
 	}
 		
