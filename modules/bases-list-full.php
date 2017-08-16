@@ -35,6 +35,10 @@
 			'posY' => (float)$row['pos_y'],
 			'images' => $images,
 			'comments_count' => (int)$row['comments_count'],
+			'date_added' => $row['date_added'],
+			'date_edited' => $row['date_edited'],
+			'is_vip' => $row['vip'] == 1,
+			'vip_end_date' => (int)$row['vip_end_date'],
 		);
 	}
 		
