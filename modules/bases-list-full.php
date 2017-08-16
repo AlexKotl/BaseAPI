@@ -6,7 +6,7 @@
 		group by bases.id
 		order by bases.vip desc, bases.vip_end_date desc, bases.id desc ");
 	
-	while ($row=$db->fetch($res)) {
+	while ($row = $db->fetch($res)) {
 	
 		// list images
 		$images = array();
@@ -23,7 +23,7 @@
 		$row['contacts'] = strip_tags($row['contacts']);
 		$row['address'] = strip_tags($row['address']);
 		
-		$data[$row['id']] = array(		
+		$data[] = array(		
 			'id' => $row['id'],
 			'title' => $row['name'],
 			'description' => $row['description'],
