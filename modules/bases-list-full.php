@@ -21,7 +21,7 @@
 		$row['description'] = strip_tags($row['description']);
 		$row['name'] = strip_tags($row['name']);
 		$row['contacts'] = strip_tags($row['contacts']);
-		$row['address'] = strip_tags($row['address']);
+		$row['address'] = strip_tags($row['address']);				
 		
 		$data[] = array(		
 			'id' => $row['id'],
@@ -39,7 +39,20 @@
 			'date_edited' => $row['date_edited'],
 			'is_vip' => $row['vip'] == 1,
 			'vip_end_date' => (int)$row['vip_end_date'],
+			'comments' => array(),
 		);
+		
+		// get comments
+		$res_comments = $db->query("select * from comments where base_id='{$row['id']}' order by date desc");
+		while ($row_comments = $db->fetch($res_comments)) {
+			$data['comments'][] = array(
+				'name' => $row_comments['name'],
+				'band_name' => $row_comments['band'],
+				'text' => $row_comments['content'],
+				'date' => substr($row_comments['date'],0,10),
+				'rating' => (int)$row_comments['rating'],
+			);
+		} 
 	}
 		
 ?>
