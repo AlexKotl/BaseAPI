@@ -41,18 +41,7 @@
 			'vip_end_date' => (int)$row['vip_end_date'],
 			'comments' => array(),
 		);
-		
-		// get comments
-		$res_comments = $db->query("select * from comments where base_id='{$row['id']}' order by date desc");
-		while ($row_comments = $db->fetch($res_comments)) {
-			$data['comments'][] = array(
-				'name' => $row_comments['name'],
-				'band_name' => $row_comments['band'],
-				'text' => $row_comments['content'],
-				'date' => substr($row_comments['date'],0,10),
-				'rating' => (int)$row_comments['rating'],
-			);
-		} 
+				
 	}
 		
 ?>
