@@ -23,6 +23,14 @@
 		$row['contacts'] = strip_tags($row['contacts']);
 		$row['address'] = strip_tags($row['address']);				
 		
+		$marker_type = 'default';
+		if ((time() - strtotime($row['date_edited'])) >= 3600 * 24 * 365) {
+    		$marker_type = 'expired';
+		}
+		if ($row['vip'] == 1) {
+    		$marker_type = 'vip';
+		}
+		
 		$data[] = array(		
 			'id' => $row['id'],
 			'title' => $row['name'],
@@ -40,6 +48,7 @@
 			'is_vip' => $row['vip'] == 1,
 			'vip_end_date' => (int)$row['vip_end_date'],
 			'comments' => array(),
+			'marker_type' => $marker_type,
 		);
 				
 	}
