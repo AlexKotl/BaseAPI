@@ -12,6 +12,7 @@
 	$res_comments = $db->query("select * from comments where base_id='{$id}' order by date desc");
 	while ($row_comments = $db->fetch($res_comments)) {
 		$data[] = array(
+    		'id' => $row_comments['id'],
 			'name' => $row_comments['name'],
 			'band_name' => $row_comments['band'],
 			'text' => $row_comments['content'],
