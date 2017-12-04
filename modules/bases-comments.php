@@ -5,9 +5,8 @@
 	#   Get all comments for specific base
 	#
 	#------------------------------------------------------
-	
-	$id = 0;
-	if (isset($_REQUEST['id'])) $id = (int)$_REQUEST['id'];
+
+	$id = (int)$parameters['id'];
 	
 	// get comments
 	$res_comments = $db->query("select * from comments where base_id='{$id}' order by date desc");
